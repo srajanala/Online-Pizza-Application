@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "Margherita",
+		"price": 3,
+		"vege": true,
+		"own": false,
+		"content": ["tomato base", "mozzarella cheese", "basil"]
+	},
+	{
+		"id": 2,
+		"name": "Prosciutto",
+		"price": 4,
+		"vege": false,
+		"own": false,
+		"content": ["tomato base", "mozzarella cheese", "ham"]
+	},
+	{
+		"id": 3,
+		"name": "Funghi",
+		"price": 4.3,
+		"vege": true,
+		"own": false,
+		"content": ["tomato base", "mozzarella cheese", "mushrooms"]
+	},
+	{
+		"id": 4,
+		"name": "Hawai",
+		"price": 4.4,
+		"vege": false,
+		"own": false,
+		"content": ["tomato base", "mozzarella cheese", "ham", "pineapple"]
+	},
+	{
+		"id": 5,
+		"name": "Asparagi",
+		"price": 4.5,
+		"vege": false,
+		"own": false,
+		"content": ["tomato base", "mozzarella cheese", "ham", "asparagus", "olives"]
+	},
+	{
+		"id": 6,
+		"name": "Vegetariana",
+		"price": 5,
+		"vege": true,
+		"own": false,
+		"content": ["tomato base", "broccoli", "artichokes", "cherry tomatoes", "corn", "olives"]
+	},
+	{
+		"id": 7,
+		"name": "Tonno",
+		"price": 5.2,
+		"vege": false,
+		"own": false,
+		"content": ["tomato base", "mozzarella cheese", "tuna", "onion", "olives"]
+	},
+	{
+		"id": 8,
+		"name": "Custom Pizza",
+		"price": 0.0,
+		"own": true,		
+		"size": ["Large", "Medium", "Small"],
+		"sizeSelected":"",
+		"sizePrice": 0,
+		"sizeInd": false,
+		"suace": ["Marinara","BBQ","Paramesan","Buffalo"],
+		"suaceSelected":"",
+		"suacePrice": 0,
+		"sauceInd": false,
+		"cheese":["Normal cheese", "Light Cheese", "No Cheese"],
+		"cheeseSelected":"",
+		"cheesePrice": 0,
+		"cheeseInd": false,
+		"Toppings": ["Chicken", "Ham", "Bacon","Peperoni"],
+		"toppingSelected":"",
+		"toppingPrice": 0,
+		"topInd":false,
+		"Veggies":["Pine Apple","Green Peppers", "Olives", "Mushrooms", "Onions"],
+		"veggiesSelected":"",
+		"veggiePrice": 0,
+		"vegInd": false
+
+
+	}
+]

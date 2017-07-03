@@ -1,0 +1,112 @@
+<div class="panel panel-success">
+	<div class="panel-heading">
+		Select your pizza
+	</div>
+	<div class="panel-body">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default" ng-class="{disabled: search === null}" ng-click="search = null">All</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === true}" ng-click="search.vege = true ; search.own = false">Only vegetarian</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.vege === false}" ng-click="search.vege = false; search.own = false">Only with meat</button>
+			<button type="button" class="btn btn-default" ng-class="{disabled: search.own === false}" ng-click="search.own = true">Make Your Own Pizza</button>
+		</div>
+		<hr/>
+		<div ng-repeat="pizza in list | filter: search">
+			<div class="pull-right" ng-if="search.own === false">
+				<div class="price">{{pizza.price}} $</div>
+				<button type="button" ng-click="order.add(pizza)"
+				        class="btn btn-success" >
+					<span class="glyphicon glyphicon-plus"></span>
+					Order
+				</button>
+			</div>
+
+			<div class="pull-right" ng-if="search.own === true">
+				<div class="price">{{pizza.price}} $</div>
+				<button type="button" ng-click="order.add(pizza)"
+				        class="btn btn-success" ng-disabled= "!(pizza.sizeInd && pizza.sauceInd && pizza.cheeseInd && pizza.topInd && pizza.vegInd)">
+					<span class="glyphicon glyphicon-plus"></span>
+					Order
+				</button>
+			</div>
+
+
+			<h3>
+				{{pizza.name}}
+				<span class="label label-warning" ng-show="pizza.vege">vegetarian</span>
+			</h3>
+
+			<p>
+				<span ng-repeat="item in pizza.content">{{item}}<span ng-hide="$last">, </span></span>
+			</p>
+			<hr ng-hide="$last"/>
+			<div ng-if ="search.own">	
+				<h3>Pizza Size</h3></br>
+				<div  ng-repeat="psize in pizza.size" style="display:inline; margin-right: 5px" ng-click="order.setParameter(sizeSelect, pizza)">
+					<input type="radio" name="pizzaSize" value="{{psize}}" ng-model="sizeSelect"   />
+					<label>{{psize}}</label>
+				</div></br>
+				<h3>Suace</h3></br>
+				<div  ng-repeat="psuace in pizza.suace" style="display:inline; margin-right: 5px"  ng-click="order.setParameter(suaceSelect, pizza)">
+					<input type="radio" name="pizzaSuace" value="{{psuace}}"  ng-model="suaceSelect" />
+					<label>{{psuace}} </label>
+				</div></br>	
+				<h3>Cheese</h3></br>
+				<div  ng-repeat="pcheese in pizza.cheese" style="display:inline; margin-right: 5px" ng-click="order.setParameter(cheseSelect, pizza)">
+					<input type="radio" name="pizzacheese" value="{{pcheese}}" ng-model="cheseSelect" />
+					<label>{{pcheese}}</label>
+				</div></br>	
+				<h3>Toppings</h3></br>
+				<div  ng-repeat="pToppings in pizza.Toppings" style="display:inline; margin-right: 5px" ng-click="order.setParameter(toppingSelect, pizza)">
+					<input type="radio" name="pizzaToppings" value="{{pToppings}}" ng-model="toppingSelect"  />
+					<label>{{pToppings}}</label>
+				</div></br>
+				<h3>Veggies</h3></br>
+				<div  ng-repeat="pVeggies in pizza.Veggies" style="display:inline; margin-right: 5px" ng-click="order.setParameter(veggieSelect, pizza)">
+					<input type="radio" name="pizzaVeggies" value="{{pVeggies}}" ng-model="veggieSelect" />
+					<label>{{pVeggies}}</label>
+				</div></br>	
+				<div>
+					<h1>Pizza Details</h1>
+					<table style="width:100%">
+					  <tr>
+					    <th>Pizza Items</th>
+					    <th>Price</th> 					    
+					  </tr>
+					  <tr ng-if ="pizza.sizeInd" >
+					    <td>{{pizza.sizeSelected}}</td>
+					    <td>{{pizza.sizePrice}}$</td> 					    
+					  </tr>
+					  <tr ng-if ="pizza.sauceInd" >
+					    <td>{{pizza.suaceSelected}}</td>
+					    <td>{{pizza.suacePrice}}$</td> 					    
+					  </tr>
+					  <tr ng-if ="pizza.cheeseInd" >
+					    <td>{{pizza.cheeseSelected}}</td>
+					    <td>{{pizza.cheesePrice}}$</td> 					    
+					  </tr>	
+					  <tr ng-if ="pizza.topInd" >
+					    <td>{{pizza.toppingSelected}}</td>
+					    <td>{{pizza.toppingPrice}}$</td> 					    
+					  </tr>	
+					  <tr ng-if ="pizza.vegInd" >
+					    <td>{{pizza.veggiesSelected}}</td>
+					    <td>{{pizza.veggiePrice}}$</td> 					    
+					  </tr>	
+
+					  <tr>
+					    <td> <b>Total</b> </td>
+					    <td> <b> {{pizza.price}}$ </b> </td> 					    
+					  </tr>	
+
+					  </table>
+				</div>	
+
+
+
+			</div>	
+		</div>
+		
+	</div>
+</div>
+
+
